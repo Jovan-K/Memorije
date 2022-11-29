@@ -37,7 +37,7 @@ b{
     box-shadow: 0 0.75rem 1rem 0 rgba(0,0,0,0.24), 0 1.063rem 3.125rem 0 rgba(0,0,0,0.19);
 }
 .polja:hover{
-    box-shadow: 0 0.75rem 1rem 0 rgba(0, 0, 0, 0.377), 0 1.063rem 3.125rem 0 rgba(0, 0, 0, 0.301);
+    box-shadow: 0 0.75rem 1rem 0 rgba(0, 0, 0, 0.38), 0 1.063rem 3.125rem 0 rgba(0, 0, 0, 0.33);
 }
 
 .rezultat{
@@ -46,7 +46,9 @@ b{
     padding-left: 1rem;
     box-shadow: 0 0.75rem 1rem 0 rgba(0,0,0,0.24), 0 1.063rem 3.125rem 0 rgba(0,0,0,0.19);
 }
-
+.rezultat:hover{
+    box-shadow: 0 0.75rem 1rem 0 rgba(0, 0, 0, 0.377), 0 1.063rem 3.125rem 0 rgba(0, 0, 0, 0.301);
+}
 
 .polja.polje1{
     background-color: green;
@@ -106,8 +108,3 @@ b{
     }  
 }
 
-@media only screen and (max-width: 410px) {
-    *{
-        font-size: 6px;
-    } 
-}
