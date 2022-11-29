@@ -1,6 +1,12 @@
 let rezultat = document.getElementById("rez");
 let memorija = [];
+let skor = 0;
 let rez = 0;
+let i = 0;
+
+let tekstRez = "Rezultat: "
+let tekstHajskor = "Haj-Skor: "
+
 
 let polje1 = document.getElementById("p1");
 let polje2 = document.getElementById("p2");
@@ -72,29 +78,29 @@ function obelezi(mem){
         polje1.classList.add("mark");
         setTimeout(() => {
             polje1.classList.remove("mark");
-        }, "500")
+        }, "400")
     }
     else if(mem == 1){
         polje2.classList.add("mark");
         setTimeout(() => {
             polje2.classList.remove("mark");
-        }, "500")
+        }, "400")
     }
     else if(mem == 2){
         polje3.classList.add("mark");
         setTimeout(() => {
             polje3.classList.remove("mark");
-        }, "500")
+        }, "400")
     }
     else if(mem == 3){
         polje4.classList.add("mark");
         setTimeout(() => {
             polje4.classList.remove("mark");
-        }, "500")
+        }, "400")
     }
 }
 
-let i = 0;
+
 function petlja(){
     setTimeout(() => {
         obelezi(memorija[i]);
@@ -106,14 +112,17 @@ function petlja(){
             i = 0;
             provera();
         }
-    }, "1000")
+    }, "800")
 }
 
 function netacan(){
     brisiEventListenere(memorija[i])
+    if (rez > skor){
+        skor = rez;
+    }
     memorija.length = 0;
     rez = 0;
-    rezultat.innerHTML = rez;
+    rezultat.innerHTML = tekstRez + rez;
     main();
 }
 
@@ -132,7 +141,10 @@ function provera(){
     }
     else{
         rez++;
-        rezultat.innerHTML = rez;
+        if(rez > skor){
+            skor = rez;
+        }
+        rezultat.innerHTML = tekstRez + rez;
         main();
     }
 }
@@ -143,3 +155,20 @@ function main(){
     randomNaredni();
     petlja();
 }
+
+// Dodaci:
+
+
+function hajskor(){
+    rezultat.innerHTML = tekstHajskor + skor;
+}
+
+function vratiRezultat(){
+    rezultat.innerHTML = tekstRez + rez;
+}
+
+
+divrez = document.getElementById("rezultati");
+
+divrez.addEventListener("mouseenter", hajskor);
+divrez.addEventListener("mouseleave", vratiRezultat);
